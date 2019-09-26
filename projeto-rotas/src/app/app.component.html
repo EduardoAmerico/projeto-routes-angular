@@ -1,0 +1,18 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<nav>
+    <div class="nav-wrapper">
+      <a [routerLink]="['']" routerLinkActive="router-link-active"  class="brand-logo right">Rotas Ng2</a>
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
+        <li  routerLinkActive="active"><a [routerLink]="['/login']" routerLinkActive="router-link-active" >Login</a></li>
+        <li  routerLinkActive="active"><a [routerLink]="['/cursos']" routerLinkActive="router-link-active" [queryParams]="{pagina:1}">Cursos</a></li>
+        <li  routerLinkActive="active"><a [routerLink]="['curso',idCurso.value]" routerLinkActive="router-link-active" >Curso do Id</a></li>
+        <li  routerLinkActive="active"><a [routerLink]="['/alunos']" routerLinkActive="router-link-active" >Alunos</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container">
+    <p>Entre com o id do curso:</p>
+    <input #idCurso>
+    <router-outlet></router-outlet></div>
+
+
