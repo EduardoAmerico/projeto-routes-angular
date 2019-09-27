@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
 import { CursosModule } from './cursos/cursos.module';
 import { AlunosModule } from './alunos/alunos.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,10 @@ import { AlunosModule } from './alunos/alunos.module';
     BrowserAnimationsModule,
     MatSliderModule,
     CursosModule,
-    AlunosModule
+    AlunosModule,
+    FormsModule,
+   ReactiveFormsModule
+
 
   ],
   providers: [],
