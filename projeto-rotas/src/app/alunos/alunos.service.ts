@@ -19,7 +19,6 @@ export class AlunosService {
   getAluno(id) {
     for (let i = 0; i < this.alunos.length; i++) {
       let aluno = this.alunos[i];
-      console.log(id)
       if (aluno.id == id) {
       
         return aluno;

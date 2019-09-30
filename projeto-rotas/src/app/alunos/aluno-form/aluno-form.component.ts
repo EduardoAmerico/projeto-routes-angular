@@ -10,22 +10,25 @@ import { AlunosService } from '../alunos.service';
 })
 export class AlunoFormComponent implements OnInit {
 
-  aluno:any;
+  aluno:any ={};
   inscricao: Subscription;
-  id;
 
 
-  constructor(private route:ActivatedRoute,
-    private alunosService:AlunosService) { }
+  constructor(
+    private route:ActivatedRoute,
+    private alunosService:AlunosService
+    ) { }
 
   ngOnInit() {
     this.inscricao = this.route.params.subscribe(
       (params:any) => {
-        console.log(params);
-        this.id = params['id'];
-        console.log(params['id'])
+        let id = params['id'];
       
-        this.aluno = this.alunosService.getAluno(this.id);
+        this.aluno = this.alunosService.getAluno(id);
+
+        if(this.aluno ===null){
+          this.aluno = {};
+        }
       }
     );
   }
