@@ -6,9 +6,9 @@ import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const alunosRoutes: Routes = [
-  // {path: 'cursos', component: CursosComponent},
-  {
-    path: 'alunos', component: AlunosComponent, children: [
+ // {path: 'alunos', component: AlunosComponent, children: [
+  {path: '', component: AlunosComponent, children: [
+
       { path: 'novo', component: AlunoFormComponent },
       { path: ':id', component: AlunoDetalheComponent },
       { path: ':id/editar', component: AlunoFormComponent }
