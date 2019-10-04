@@ -1,3 +1,6 @@
+import { AursosGuard } from './guards/alunos.guard';
+import { CursosGuard } from './guards/cursos.guard';
+import { AuthGuard } from './guards/auth.guard';
 import { LoginService } from './login/login.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -24,14 +27,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatSliderModule,
-   // CursosModule,
+    // CursosModule,
     //AlunosModule,
     FormsModule,
-   ReactiveFormsModule
+    ReactiveFormsModule
 
 
   ],
-  providers: [LoginService],
+  providers: [LoginService, AuthGuard, CursosGuard, AursosGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

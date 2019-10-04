@@ -1,15 +1,30 @@
+import { AursosGuard } from './guards/alunos.guard';
+import { CursosGuard } from './guards/cursos.guard';
+import { AuthGuard } from './guards/auth.guard';
 
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { NgModule, Component } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, CanActivateChild } from '@angular/router';
 
 const routes: Routes = [
-  {path: 'cursos', loadChildren: './cursos/cursos.module#CursosModule'},
-  {path: 'alunos', loadChildren: './alunos/alunos.module#AlunosModule'},
+  {path: 'cursos', 
+    loadChildren: './cursos/cursos.module#CursosModule',
+    canActivate: [AuthGuard],
+    canActivateChild: [CursosGuard]
+  },
+  {path: 'alunos', 
+    loadChildren: './alunos/alunos.module#AlunosModule',
+    canActivate: [AuthGuard],
+    canActivateChild: [AursosGuard]
+  },
 
-  {path: '', component: HomeComponent},
-  {path: 'login', component: LoginComponent},
+  {path: '', component: HomeComponent,
+  canActivate: [AuthGuard]
+  
+  },
+  {path: 'login', component: LoginComponent
+  }
 ];
 
 @NgModule({
@@ -17,3 +32,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+ 
